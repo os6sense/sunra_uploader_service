@@ -1,0 +1,7 @@
+upload_server_address: example.com
+upload_server_port: 80
+sftp_ssl_key:
+sftp_username: username
+sftp_password: password
+upload_base_directory: /archive/test
+start_time: '01:00'

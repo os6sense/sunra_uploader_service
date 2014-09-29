@@ -1,0 +1,7 @@
+archive_server_address: address
+archive_server_port: 22
+sftp_ssl_key: /path/to/key/file
+sftp_username: username
+sftp_password: password
+archive_base_directory: /a/sub/directory
+start_time: '01:00'
