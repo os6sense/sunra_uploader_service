@@ -1,6 +1,7 @@
 require 'json'
 
-require 'sunra_config/global'
+require 'sunra_utils/config/global'
+
 require_relative 'uploader'
 
 require_relative '../../lib/recording_db_proxy'

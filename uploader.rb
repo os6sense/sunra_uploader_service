@@ -1,6 +1,7 @@
 require 'forwardable'
 
-require_relative '../../lib/sftp_uploader'
+require 'sunra_utils/sftp_uploader'
+require 'sunra_utils/logging'
 #require 'sunra_logging'
 
 module Sunra
@@ -8,7 +9,7 @@ module Sunra
     # ==== Description
     # Wrapper around @SFTPUploader which handles
     class Uploader
-      include SunraLogging
+      include Sunra::Utils::Logging
 
       extend Forwardable
 

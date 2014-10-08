@@ -12,9 +12,12 @@
 # should have a common base?
 #
 require 'json'
-#require 'sunra_logging'
+require 'sunra_utils/logging'
+require 'sunra_utils/rest_client'
 
-require_relative '../../lib/sunra_rest_client'
+# require 'sunra_logging'
+# require_relative '../../lib/sunra_rest_client'
+#
 require_relative '../../lib/sinatra_passenger'
 
 require_relative 'proxy/all'
@@ -25,7 +28,7 @@ module Sunra
     # Provide a proxy for the parts of the rest service which deal with the
     # saving of information about recording formats.
     class ArchiveProxy
-      include SunraLogging
+      include Sunra::Utils::Logging
 
       class ArchiveProxyError < StandardError; end
 
@@ -49,7 +52,6 @@ module Sunra
       # ==== Params
       # +rf+:: recording_format record. See recording_format.rb/RecFormat
       #        for a full description.
-      #
       def notify(rf, destination)
         logger.info('ArchiveProxy') { 'Notifying Archive Service' }
         logger.info('ArchiveProxy') { "rf: #{rf}" }
