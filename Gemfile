@@ -19,5 +19,4 @@ gem 'rest-client'
 gem 'sinatra'
 gem 'eventmachine'
 
-gem 'sunra_config'
-gem 'sunra_logging'
+gem 'sunra_utils'

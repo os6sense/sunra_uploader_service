@@ -1,11 +1,10 @@
 require 'json'
 
 require 'sunra_utils/config/global'
+require 'sunra_utils/recording_db_proxy'
+require 'sunra_utils/format_proxy'
 
 require_relative 'uploader'
-
-require_relative '../../lib/recording_db_proxy'
-require_relative '../../lib/format_proxy'
 
 module Sunra
   module Utils

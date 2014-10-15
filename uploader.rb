@@ -2,7 +2,6 @@ require 'forwardable'
 
 require 'sunra_utils/sftp_uploader'
 require 'sunra_utils/logging'
-#require 'sunra_logging'
 
 module Sunra
   module Utils
@@ -31,7 +30,7 @@ module Sunra
       #                           be appended to.
       # +sftp_password+:: optional?
       def initialize(config)
-        @sftp = SFTPUploader.new(config.archive_server_address,
+        @sftp = Sunra::Utils::SFTP::Uploader.new(config.archive_server_address,
                                  config.sftp_username,
                                  config.archive_base_directory,
                                  config.sftp_password)

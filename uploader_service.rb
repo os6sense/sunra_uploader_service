@@ -4,15 +4,17 @@ require 'sinatra'
 require 'eventmachine'
 require 'json'
 
+require 'sunra_utils/logging/passenger/sinatra'
+
 require_relative 'uploader_api'
-require_relative '../../lib/sinatra_passenger'
 
 module Sunra
   module Service
     class Uploader < Sinatra::Base
-      helpers Sinatra::Passenger
+      helpers Sunra::Utils::Logging::Passenger::Sinatra
+
       configure :production, :staging, :development do
-        set :logger, Sinatra::Passenger::Logger.new(root, environment)
+        set :logger, Sunra::Utils::Logging::Passenger::Sinatra::Logger.new(root, environment)
       end
 
       # ==== Description

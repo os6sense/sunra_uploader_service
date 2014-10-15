@@ -15,10 +15,7 @@ require 'json'
 require 'sunra_utils/logging'
 require 'sunra_utils/rest_client'
 
-# require 'sunra_logging'
-# require_relative '../../lib/sunra_rest_client'
-#
-require_relative '../../lib/sinatra_passenger'
+require 'sunra_utils/logging/passenger/sinatra'
 
 require_relative 'proxy/all'
 
@@ -56,6 +53,7 @@ module Sunra
         logger.info('ArchiveProxy') { 'Notifying Archive Service' }
         logger.info('ArchiveProxy') { "rf: #{rf}" }
         logger.info('ArchiveProxy') { "destination: #{destination}" }
+
         p_id = ProjectProxy.new(@rest_client).create(rf).id
         logger.info('ArchiveProxy') { "Project Created #{p_id}" }
         s_id = SessionProxy.new(@rest_client).create(p_id, rf).id
