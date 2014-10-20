@@ -101,7 +101,7 @@ module Sunra
       # ==== Description
       # Full pathname and filename to the file to upload
       def source
-        @_source ||= "#{@rf['directory']}/#{base_filename}.#{format}"
+        @_source ||= "#{@rf['directory']}#{base_filename}.#{format}"
       end
 
       # ==== Description
