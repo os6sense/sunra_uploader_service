@@ -1,4 +1,5 @@
-# File: uploader_service/config.ru
+# File: config.ru
+#
 require 'rubygems'
 require 'sinatra'
 require 'rack/cors'
@@ -29,6 +30,4 @@ format_proxy = Sunra::Utils::FormatProxy.new(
   Sunra::Utils::Config::Global.project_rest_api_url
 )
 
-puts 'Starting Uploader Service'
-
-run Sunra::Service::Uploader.new(Sunra::Utils::Config::Global, format_proxy)
+run Sunra::Service::Uploader.new(format_proxy)

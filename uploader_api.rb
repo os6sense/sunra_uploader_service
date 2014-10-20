@@ -1,8 +1,6 @@
-# File:: uploader.api
+# File:: uploader_api.api
 
 require 'eventmachine'
-
-require 'sunra_config/uploader'
 
 require_relative 'upload_history'
 require_relative 'archive_proxy'
@@ -12,16 +10,16 @@ module Sunra
   module Uploader
     # Description::
     class API
-      attr_reader :timer
+      # attr_reader :timer
 
-      def initialize(format_proxy)
-        @format_proxy  = format_proxy
-        @history       = Sunra::Utils::History.new(format_proxy)
-        @uploader      = Sunra::Utils::Uploader.new(Sunra::Config::Uploader)
+      include Sunra::Utils
 
-        @archive_proxy = Sunra::Utils::ArchiveProxy.new(
-          Sunra::Config::Uploader.archive_api_key,
-          Sunra::Config::Uploader.archive_server_rest_url)
+      def initialize(format_proxy, config, logger = nil)
+        @format_proxy     = format_proxy
+        @history          = History.new(format_proxy)
+        @uploader         = Sunra::Utils::Uploader.new(config, logger)
+        @archive_proxy    = ArchiveProxy.new(config.archive_api_key,
+                                             config.archive_server_rest_url)
       end
 
       # ==== Description
@@ -31,17 +29,31 @@ module Sunra
         {
           history: @history.recent(5),
           uploading: @uploader.status,
-          pending: pending.map { | rf | rf.source },
+          pending: pending.map do | rf |
+            {
+              project_id: rf.project_id,
+              project_name: rf.project_name,
+              client_name: rf.client_name,
+              start_time: rf.to_recording(rf.booking_id)[:recording][:start_time],
+              end_time: rf.to_recording(rf.booking_id)[:recording][:end_time],
+              base_filename: rf.base_filename,
+              format: rf.format
+            }
+          end,
           upload_at: 'See Cron' # @timer.time
         }
       end
 
       def process_pending
         pending.each do | rf |
+          upload_start_time = Time.now
+
           if @uploader.upload(rf.source, rf.destination)
             @archive_proxy.notify(rf, @uploader.destination)
             @format_proxy.update_format_field(rf.id, :upload, false)
-            @history.add(rf, @uploader)
+
+            @history.add(rf, upload_start_time, @uploader)
+
             @uploader.reset_status
           end
         end
@@ -72,7 +84,6 @@ module Sunra
       # ==== Description
       # obtains the list of pending files to be uploaded via the rest api
       def pending
-        #puts @format_proxy.formats_for('upload')
         @format_proxy.formats_for('upload').map do | rf |
           Sunra::Utils::RecordingFormat.new(rf)
         end

@@ -12,9 +12,9 @@
 # should have a common base?
 #
 require 'json'
+
 require 'sunra_utils/logging'
 require 'sunra_utils/rest_client'
-
 require 'sunra_utils/logging/passenger/sinatra'
 
 require_relative 'proxy/all'

@@ -68,6 +68,18 @@ module Sunra
         @rf['recording']['base_filename']
       end
 
+      def project
+        JSON.parse(db_api.get_project(project_id, Config::Global.studio_id))
+      end
+
+      def client_name
+        project['client_name']
+      end
+
+      def project_name
+        project['project_name']
+      end
+
       # ==== Description
       # Although the file format *should* be the litteral string value it
       # is possible that it might be an integer which needs looking up.
@@ -76,6 +88,7 @@ module Sunra
         lookup_val = Integer(@rf['format'])
         @_format ||= format_proxy.lookup_format_name(lookup_val)
       rescue
+
         @rf['format']
       end
 
@@ -94,8 +107,7 @@ module Sunra
       # ==== Description
       # Just the pathname of where to upload to
       def destination_path
-        @_destination_path ||= "#{@rf['project_id']}/#{@rf['booking_id']}/"
-      end
+        @_destination_path ||= "#{@rf['project_id']}/#{@rf['booking_id']}/" end
 
       # ==== Description
       # Full pathname and filename of where to upload to
@@ -112,13 +124,8 @@ module Sunra
       # the project and client names hence there are obtained via a lookup
       # of the project via the project managers rest api.
       #
-      # Yes, I should have just bloody included them in the record.
+      # TODO: Yes, I should have just bloody included them in the record.
       def to_project
-        project = JSON.parse(
-          db_api.get_project(project_id,
-                             Sunra::Config::Global.studio_id)
-        )
-
         { project: { uuid: project_id,
                      name: project['project_name'],
                      client: project['client_name']
@@ -137,12 +144,12 @@ module Sunra
       def to_session(project_id)
         booking = db_api.get_booking(project_id,
                                      booking_id,
-                                     Sunra::Config::Global.studio_id)
+                                     Config::Global.studio_id)
         booking = JSON.parse(booking)
 
         { session: {
           project_id: project_id,
-          studio: Sunra::Config::Global.studio_id,
+          studio: Config::Global.studio_id,
           date: booking['date'],
           start_time: booking['start_time'],
           end_time: booking['end_time']
@@ -187,16 +194,13 @@ module Sunra
       private
 
       def db_api
-        @_db_api ||= Sunra::Recording::DB_PROXY.new(
-                        Sunra::Config::Global.api_key,
-                        Sunra::Config::Global.project_rest_api_url)
+        @_db_api ||= Recording::DBProxy.new(Config::Global.api_key,
+                                            Config::Global.project_rest_api_url)
       end
 
       def format_proxy
-        @_format_proxy ||= Sunra::Utils::FormatProxy.new(
-          Sunra::Config::Global.api_key,
-          Sunra::Config::Global.project_rest_api_url
-        )
+        @_format_proxy ||= FormatProxy.new(Config::Global.api_key,
+                                           Config::Global.project_rest_api_url)
       end
     end
   end

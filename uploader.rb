@@ -1,14 +1,13 @@
 require 'forwardable'
 
 require 'sunra_utils/sftp_uploader'
-require 'sunra_utils/logging'
 
 module Sunra
   module Utils
     # ==== Description
     # Wrapper around @SFTPUploader which handles
     class Uploader
-      include Sunra::Utils::Logging
+      attr_accessor :logger
 
       extend Forwardable
 
@@ -29,11 +28,12 @@ module Sunra
       # +upload_base_directory+:: The base directory to which all paths will
       #                           be appended to.
       # +sftp_password+:: optional?
-      def initialize(config)
+      def initialize(config, logger = nil)
         @sftp = Sunra::Utils::SFTP::Uploader.new(config.archive_server_address,
                                  config.sftp_username,
                                  config.archive_base_directory,
                                  config.sftp_password)
+        @sftp.logger = logger
       end
 
       def abort!
@@ -52,15 +52,15 @@ module Sunra
       #                 +upload_base_directory+ was specified in the config
       #                 that this will be prepended to the destination path.
       def upload(source, destination)
-        fail "Cannot upload while upload is in progress"\
-          if @uploading
+        msg = "Cannot upload a file while an upload is already in progress"
+        fail msg if @uploading
 
         @uploading = true
 
         begin
           @sftp.upload(source, destination)
-        rescue Exception => msg
-          logger.debug msg
+        rescue Exception => e_msg
+          logger.error(e_msg)
           return false
         ensure
           @uploading = false

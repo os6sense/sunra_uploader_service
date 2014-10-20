@@ -5,6 +5,7 @@ require 'eventmachine'
 require 'json'
 
 require 'sunra_utils/logging/passenger/sinatra'
+require 'sunra_utils/config/uploader'
 
 require_relative 'uploader_api'
 
@@ -14,24 +15,29 @@ module Sunra
       helpers Sunra::Utils::Logging::Passenger::Sinatra
 
       configure :production, :staging, :development do
-        set :logger, Sunra::Utils::Logging::Passenger::Sinatra::Logger.new(root, environment)
+        set :logger,
+             Sunra::Utils::Logging::Passenger::Sinatra::Logger.new(root, environment)
       end
 
       # ==== Description
       # A service which handles uploading of files to the webserver
-      def initialize(global_config, format_proxy)
+      def initialize(format_proxy)
         super()
-        @global_config = global_config
-        @api = Sunra::Uploader::API.new(format_proxy)
+        @api = Sunra::Uploader::API.new(format_proxy,
+                                        Sunra::Utils::Config::Uploader,
+                                        logger)
       end
 
       get '/' do
         halt 'Uploader Service'
       end
 
-      get '/status' do
-        logger.error "hello"
-        halt @api.status.to_json
+      get '/status.?:format?' do
+        if params[:format] && params[:format] == 'html'
+          erb :status, locals: {api_status: @api.status}
+        else
+          halt @api.status.to_json
+        end
       end
 
       # The upload should not be started manually, rather it should occur at
