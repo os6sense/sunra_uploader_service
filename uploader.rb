@@ -60,7 +60,7 @@ module Sunra
         begin
           @sftp.upload(source, destination)
         rescue Exception => e_msg
-          logger.error(e_msg)
+          @sftp.logger.error(e_msg)
           return false
         ensure
           @uploading = false
