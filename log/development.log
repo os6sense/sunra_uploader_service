@@ -380,3 +380,171 @@ D, [2014-10-20T16:36:30.965630 #6451] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSess
 I, [2014-10-20T16:36:30.966798 #6451]  INFO -- : Complete /mnt/RAID/UPLOADS/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP3
 127.0.0.1 - - [20/Oct/2014 16:36:32] "GET /status.html HTTP/1.1" 200 3073 0.9407
 127.0.0.1 - - [20/Oct/2014 16:36:33] "GET /status.html HTTP/1.1" 200 2413 0.1203
+E, [2014-10-20T17:36:25.152319 #20365] ERROR -- : Net::SFTP::StatusException (2, "no such file") (Net::SFTP::StatusException)
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:846:in `wait_for'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:498:in `mkdir!'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:117:in `block in mkdir'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:939:in `call'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:939:in `block in do_version'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:939:in `each'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:939:in `do_version'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:909:in `when_channel_polled'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/channel.rb:311:in `call'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/channel.rb:311:in `process'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:222:in `block in preprocess'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:222:in `each'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:222:in `preprocess'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:205:in `process'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:169:in `block in loop'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:169:in `loop'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-ssh-2.9.1/lib/net/ssh/connection/session.rb:169:in `loop'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:802:in `loop'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp/session.rb:787:in `connect!'
+/usr/local/lib/ruby/gems/2.1.0/gems/net-sftp-2.1.2/lib/net/sftp.rb:32:in `start'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:155:in `start'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:117:in `mkdir'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:91:in `block in mkdir_r'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:90:in `each'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:90:in `reduce'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:90:in `mkdir_r'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:73:in `upload_io'
+/usr/local/lib/ruby/gems/2.1.0/gems/sunra_utils-0.0.9/lib/sunra_utils/sftp_uploader.rb:69:in `upload'
+/home/leej/sunra/sunra/services/uploader-service/uploader.rb:61:in `upload'
+/home/leej/sunra/sunra/services/uploader-service/uploader_api.rb:51:in `block in process_pending'
+/home/leej/sunra/sunra/services/uploader-service/uploader_api.rb:48:in `each'
+/home/leej/sunra/sunra/services/uploader-service/uploader_api.rb:48:in `process_pending'
+/home/leej/sunra/sunra/services/uploader-service/uploader_api.rb:73:in `block in start'
+/usr/local/lib/ruby/gems/2.1.0/gems/eventmachine-1.0.3/lib/eventmachine.rb:1037:in `call'
+/usr/local/lib/ruby/gems/2.1.0/gems/eventmachine-1.0.3/lib/eventmachine.rb:1037:in `block in spawn_threadpool'
+127.0.0.1 - - [20/Oct/2014 17:37:41] "GET /manual_start HTTP/1.1" 200 417 0.6013
+I, [2014-10-20T17:37:46.927780 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50//2014-07-02-172421.MP3#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+D, [2014-10-20T17:37:47.845971 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50//2014-07-02-172421.MP3#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+I, [2014-10-20T17:37:48.086830 #20365]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+127.0.0.1 - - [20/Oct/2014 17:37:48] "GET /status.html HTTP/1.1" 200 1920 0.4434
+127.0.0.1 - - [20/Oct/2014 17:37:51] "GET /status.html HTTP/1.1" 200 1488 0.1089
+127.0.0.1 - - [20/Oct/2014 18:50:07] "GET /manual_start HTTP/1.1" 200 2556 1.7328
+I, [2014-10-20T18:50:12.956230 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-180850.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP3
+127.0.0.1 - - [20/Oct/2014 18:50:15] "GET /status.html HTTP/1.1" 200 3361 1.6301
+D, [2014-10-20T18:50:19.978499 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-180850.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP3
+I, [2014-10-20T18:50:20.176982 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP3
+I, [2014-10-20T18:50:24.170861 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-180850.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP4
+127.0.0.1 - - [20/Oct/2014 18:50:41] "GET /status.html HTTP/1.1" 200 3352 1.4904
+127.0.0.1 - - [20/Oct/2014 18:50:48] "GET /status.html HTTP/1.1" 200 3352 1.3442
+127.0.0.1 - - [20/Oct/2014 18:50:52] "GET /status.html HTTP/1.1" 200 3352 1.5090
+127.0.0.1 - - [20/Oct/2014 18:50:55] "GET /status.html HTTP/1.1" 200 3352 1.5155
+127.0.0.1 - - [20/Oct/2014 18:50:59] "GET /status.html HTTP/1.1" 200 3352 1.7259
+127.0.0.1 - - [20/Oct/2014 18:51:07] "GET /status.html HTTP/1.1" 200 3352 1.3870
+127.0.0.1 - - [20/Oct/2014 18:51:11] "GET /status.html HTTP/1.1" 200 3352 1.4469
+127.0.0.1 - - [20/Oct/2014 18:51:14] "GET /status.html HTTP/1.1" 200 3352 1.4512
+127.0.0.1 - - [20/Oct/2014 18:51:17] "GET /status.html HTTP/1.1" 200 3352 1.4209
+127.0.0.1 - - [20/Oct/2014 18:51:44] "GET /status.html HTTP/1.1" 200 3353 1.3732
+127.0.0.1 - - [20/Oct/2014 18:51:51] "GET /status.html HTTP/1.1" 200 3353 1.4044
+127.0.0.1 - - [20/Oct/2014 18:53:20] "GET /status.html HTTP/1.1" 200 3353 1.4637
+127.0.0.1 - - [20/Oct/2014 18:53:24] "GET /status.html HTTP/1.1" 200 3353 1.4670
+127.0.0.1 - - [20/Oct/2014 18:53:27] "GET /status.html HTTP/1.1" 200 3353 1.5106
+127.0.0.1 - - [20/Oct/2014 18:53:31] "GET /status.html HTTP/1.1" 200 3353 1.4458
+127.0.0.1 - - [20/Oct/2014 18:53:34] "GET /status.html HTTP/1.1" 200 3353 1.3975
+D, [2014-10-20T18:53:36.085721 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-180850.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP4
+I, [2014-10-20T18:53:36.253331 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-180850.MP4
+127.0.0.1 - - [20/Oct/2014 18:53:38] "GET /status.html HTTP/1.1" 200 3110 1.5295
+I, [2014-10-20T18:53:40.238002 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181036.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP3
+127.0.0.1 - - [20/Oct/2014 18:53:40] "GET /status.html HTTP/1.1" 200 2919 1.1777
+127.0.0.1 - - [20/Oct/2014 18:53:44] "GET /status.html HTTP/1.1" 200 3340 1.1771
+D, [2014-10-20T18:53:49.913661 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181036.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP3
+I, [2014-10-20T18:53:50.193214 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP3
+127.0.0.1 - - [20/Oct/2014 18:53:51] "GET /status.html HTTP/1.1" 200 3340 1.9767
+I, [2014-10-20T18:53:54.769719 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181036.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP4
+127.0.0.1 - - [20/Oct/2014 18:53:56] "GET /status.html HTTP/1.1" 200 3329 0.8830
+127.0.0.1 - - [20/Oct/2014 18:53:58] "GET /status.html HTTP/1.1" 200 3330 0.8697
+127.0.0.1 - - [20/Oct/2014 18:54:00] "GET /status.html HTTP/1.1" 200 3330 0.8518
+127.0.0.1 - - [20/Oct/2014 18:54:22] "GET /status.html HTTP/1.1" 200 3331 0.9960
+127.0.0.1 - - [20/Oct/2014 18:54:24] "GET /status.html HTTP/1.1" 200 3331 1.3291
+127.0.0.1 - - [20/Oct/2014 18:54:27] "GET /status.html HTTP/1.1" 200 3331 0.8870
+127.0.0.1 - - [20/Oct/2014 18:56:20] "GET /status.html HTTP/1.1" 200 3332 0.9301
+127.0.0.1 - - [20/Oct/2014 18:56:25] "GET /status.html HTTP/1.1" 200 3332 0.9059
+127.0.0.1 - - [20/Oct/2014 18:56:28] "GET /status.html HTTP/1.1" 200 3332 0.9080
+127.0.0.1 - - [20/Oct/2014 18:56:33] "GET /status.html HTTP/1.1" 200 3332 0.9917
+127.0.0.1 - - [20/Oct/2014 18:58:35] "GET /status.html HTTP/1.1" 200 3332 0.9565
+127.0.0.1 - - [20/Oct/2014 18:58:40] "GET /status.html HTTP/1.1" 200 3332 0.9809
+127.0.0.1 - - [20/Oct/2014 18:58:45] "GET /status.html HTTP/1.1" 200 3332 1.0130
+127.0.0.1 - - [20/Oct/2014 18:58:47] "GET /status.html HTTP/1.1" 200 3332 0.9669
+D, [2014-10-20T18:59:12.947460 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181036.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP4
+I, [2014-10-20T18:59:13.109392 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181036.MP4
+I, [2014-10-20T18:59:16.760191 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181315.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP3
+D, [2014-10-20T18:59:37.376604 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181315.MP3#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP3
+I, [2014-10-20T18:59:37.501424 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP3
+I, [2014-10-20T18:59:41.727899 #20365]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181315.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP4
+127.0.0.1 - - [20/Oct/2014 19:00:18] "GET /status.html HTTP/1.1" 200 3086 0.5435
+127.0.0.1 - - [20/Oct/2014 19:00:35] "GET /status.html HTTP/1.1" 200 3086 0.4354
+127.0.0.1 - - [20/Oct/2014 19:00:37] "GET /status.html HTTP/1.1" 200 3086 0.4183
+127.0.0.1 - - [20/Oct/2014 19:09:42] "GET /status.html HTTP/1.1" 200 3089 0.3830
+127.0.0.1 - - [20/Oct/2014 19:09:45] "GET /status.html HTTP/1.1" 200 3089 0.6510
+D, [2014-10-20T19:09:56.917637 #20365] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51//2014-07-23-181315.MP4#/home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP4
+I, [2014-10-20T19:09:57.149855 #20365]  INFO -- : Complete /home/sowhat/uploads/9cdc639ac91efc91a76e34d0fe385fa26a1779c91f10a5d2a23c99e345e59ce9bf04096e/51/2014-07-23-181315.MP4
+127.0.0.1 - - [20/Oct/2014 19:10:00] "GET /status.html HTTP/1.1" 200 2421 0.1341
+127.0.0.1 - - [20/Oct/2014 19:10:03] "GET /status.html HTTP/1.1" 200 2421 0.1575
+I, [2014-10-20T19:10:32.432299 #27096]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+D, [2014-10-20T19:10:33.363779 #27096] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+I, [2014-10-20T19:10:33.598648 #27096]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP3
+127.0.0.1 - - [20/Oct/2014 19:10:34] "GET /status.html HTTP/1.1" 200 1697 0.2965
+127.0.0.1 - - [20/Oct/2014 19:10:41] "GET /status.html HTTP/1.1" 200 1488 0.1486
+I, [2014-10-20T19:16:03.074770 #27559]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+127.0.0.1 - - [20/Oct/2014 19:16:03] "GET /status.html HTTP/1.1" 200 1500 0.4484
+127.0.0.1 - - [20/Oct/2014 19:16:05] "GET /status.html HTTP/1.1" 200 1929 0.4206
+127.0.0.1 - - [20/Oct/2014 19:16:07] "GET /status.html HTTP/1.1" 200 1929 0.3934
+127.0.0.1 - - [20/Oct/2014 19:16:09] "GET /status.html HTTP/1.1" 200 1929 0.4320
+127.0.0.1 - - [20/Oct/2014 19:16:11] "GET /status.html HTTP/1.1" 200 1929 0.3799
+127.0.0.1 - - [20/Oct/2014 19:16:12] "GET /status.html HTTP/1.1" 200 1929 0.4385
+127.0.0.1 - - [20/Oct/2014 19:16:14] "GET /status.html HTTP/1.1" 200 1929 0.3992
+127.0.0.1 - - [20/Oct/2014 19:16:15] "GET /status.html HTTP/1.1" 200 1929 0.3361
+127.0.0.1 - - [20/Oct/2014 19:16:17] "GET /status.html HTTP/1.1" 200 1929 0.6826
+127.0.0.1 - - [20/Oct/2014 19:16:20] "GET /status.html HTTP/1.1" 200 1929 0.4459
+127.0.0.1 - - [20/Oct/2014 19:16:21] "GET /status.html HTTP/1.1" 200 1929 0.4005
+D, [2014-10-20T19:16:35.395656 #27559] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:16:35.553706 #27559]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:16:58.610575 #27709]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+127.0.0.1 - - [20/Oct/2014 19:16:59] "GET /status.html HTTP/1.1" 200 1933 0.3830
+127.0.0.1 - - [20/Oct/2014 19:17:00] "GET /status.html HTTP/1.1" 200 1934 0.3935
+127.0.0.1 - - [20/Oct/2014 19:17:03] "GET /status.html HTTP/1.1" 200 1934 0.3990
+127.0.0.1 - - [20/Oct/2014 19:17:06] "GET /status.html HTTP/1.1" 200 1935 0.4440
+127.0.0.1 - - [20/Oct/2014 19:17:08] "GET /status.html HTTP/1.1" 200 1935 0.3941
+127.0.0.1 - - [20/Oct/2014 19:17:10] "GET /status.html HTTP/1.1" 200 1935 0.3781
+127.0.0.1 - - [20/Oct/2014 19:17:11] "GET /status.html HTTP/1.1" 200 1935 0.4372
+127.0.0.1 - - [20/Oct/2014 19:17:13] "GET /status.html HTTP/1.1" 200 1935 0.4318
+127.0.0.1 - - [20/Oct/2014 19:17:14] "GET /status.html HTTP/1.1" 200 1935 0.4144
+127.0.0.1 - - [20/Oct/2014 19:17:16] "GET /status.html HTTP/1.1" 200 1935 0.3782
+D, [2014-10-20T19:17:27.481925 #27709] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:17:27.655410 #27709]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:18:24.684972 #27952]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+127.0.0.1 - - [20/Oct/2014 19:18:24] "GET /status.html HTTP/1.1" 200 1518 0.4362
+127.0.0.1 - - [20/Oct/2014 19:18:26] "GET /status.html HTTP/1.1" 200 1955 0.4594
+127.0.0.1 - - [20/Oct/2014 19:18:29] "GET /status.html HTTP/1.1" 200 1955 0.4184
+127.0.0.1 - - [20/Oct/2014 19:18:30] "GET /status.html HTTP/1.1" 200 1955 0.4298
+127.0.0.1 - - [20/Oct/2014 19:18:33] "GET /status.html HTTP/1.1" 200 1956 0.3907
+127.0.0.1 - - [20/Oct/2014 19:18:34] "GET /status.html HTTP/1.1" 200 1956 0.4109
+127.0.0.1 - - [20/Oct/2014 19:18:36] "GET /status.html HTTP/1.1" 200 1956 0.3733
+127.0.0.1 - - [20/Oct/2014 19:18:37] "GET /status.html HTTP/1.1" 200 1956 0.4077
+D, [2014-10-20T19:18:53.680943 #27952] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:18:53.872832 #27952]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+127.0.0.1 - - [20/Oct/2014 19:19:29] "GET /status.html HTTP/1.1" 200 1507 0.1578
+I, [2014-10-20T19:22:33.644497 #28363]  INFO -- : Opening /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+127.0.0.1 - - [20/Oct/2014 19:22:36] "GET /status.html HTTP/1.1" 200 1957 0.4523
+127.0.0.1 - - [20/Oct/2014 19:22:39] "GET /status.html HTTP/1.1" 200 1957 0.4271
+127.0.0.1 - - [20/Oct/2014 19:22:40] "GET /status.html HTTP/1.1" 200 1958 0.3674
+127.0.0.1 - - [20/Oct/2014 19:22:41] "GET /status.html HTTP/1.1" 200 1958 0.3648
+127.0.0.1 - - [20/Oct/2014 19:22:43] "GET /status.html HTTP/1.1" 200 1958 0.4267
+127.0.0.1 - - [20/Oct/2014 19:22:44] "GET /status.html HTTP/1.1" 200 1958 0.4152
+127.0.0.1 - - [20/Oct/2014 19:22:45] "GET /status.html HTTP/1.1" 200 1958 0.3692
+127.0.0.1 - - [20/Oct/2014 19:22:48] "GET /status.html HTTP/1.1" 200 1958 0.3859
+127.0.0.1 - - [20/Oct/2014 19:22:50] "GET /status.html HTTP/1.1" 200 1958 0.3437
+127.0.0.1 - - [20/Oct/2014 19:22:52] "GET /status.html HTTP/1.1" 200 1958 0.4090
+127.0.0.1 - - [20/Oct/2014 19:22:53] "GET /status.html HTTP/1.1" 200 1958 0.4261
+127.0.0.1 - - [20/Oct/2014 19:22:54] "GET /status.html HTTP/1.1" 200 1958 0.3742
+127.0.0.1 - - [20/Oct/2014 19:22:56] "GET /status.html HTTP/1.1" 200 1958 0.3526
+127.0.0.1 - - [20/Oct/2014 19:22:57] "GET /status.html HTTP/1.1" 200 1958 0.4067
+127.0.0.1 - - [20/Oct/2014 19:22:58] "GET /status.html HTTP/1.1" 200 1958 0.4072
+127.0.0.1 - - [20/Oct/2014 19:23:00] "GET /status.html HTTP/1.1" 200 1958 0.3599
+127.0.0.1 - - [20/Oct/2014 19:23:01] "GET /status.html HTTP/1.1" 200 1958 0.6614
+127.0.0.1 - - [20/Oct/2014 19:23:02] "GET /status.html HTTP/1.1" 200 1958 0.4242
+D, [2014-10-20T19:23:02.875026 #28363] DEBUG -- : Closing /mnt/RAID/VIDEO/NEWSessions/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4#/home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
+I, [2014-10-20T19:23:02.990284 #28363]  INFO -- : Complete /home/sowhat/uploads/6282262a62791e320e129879d6d8c7a31e9f39fad45620b7303d341ced5a00cc71d72491/50/2014-07-02-172421.MP4
