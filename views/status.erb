@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-  <h1><strong>U P L O A D E R &nbsp; S E R V I C E - S T A T U S</strong></h1>
+  <h1><strong>U P L O A D E R &nbsp; S E R V I C E &nbsp;-&nbsp; S T A T U S</strong></h1>
   <hr/>
 
   <h2>H I S T O R Y (last 5 uploads)</h2>
@@ -17,7 +17,7 @@
       <th>c l i e n t</th>
       <th>f i l e n a m e</th>
       <th>f o r m a t</th>
-      <th>f i n i s h  t i m e</th>
+      <th>f i n i s h &nbsp; t i m e</th>
       <th>d u r a t i o n<//th>
       <th>u p l o a d e d ?</th>
     </tr>
@@ -29,7 +29,7 @@
       <td><%= h[:base_filename] %></td>
       <td><%= h[:format] %></td>
       <td><%= h[:timestamp] %></td>
-      <td><%= h[:duration] %></td>
+      <td><%= "%.1f" % h[:duration] %> s</td>
       <td><%= h[:status][:complete] %></td>
     </tr>
     <% end %>
@@ -39,12 +39,12 @@
   <div class="well">
     <% if api_status[:uploading][:size] > 0%>
       <h6>L O C A L :<%= api_status[:uploading][:local]%></h6>
-      <h6>R E M O T E :<%= api_status[:uploading][:remote]%></h6>
+      <h6>R E M O T E : <%=api_status[:host]%><%= api_status[:uploading][:remote]%></h6>
       <table class="table">
         <tr>
-          <td>S I Z E :<%= api_status[:uploading][:size]%></td>
-          <td>W R I T T E N :<%= api_status[:uploading][:bytes_written]%></td>
-          <td>C O M P L E T E ? :<%= api_status[:uploading][:complete ]%></td>
+          <td>S I Z E : <%= api_status[:uploading][:size]/(1024)%> KB</td>
+          <td>W R I T T E N : <%= api_status[:uploading][:bytes_written]/(1024)%> KB</td>
+          <td>C O M P L E T E ? : <%= api_status[:uploading][:complete ]%></td>
         </tr>
       </table>
     <% else %>

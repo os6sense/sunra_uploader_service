@@ -11,7 +11,7 @@ module Sunra
 
       extend Forwardable
 
-      def_delegators :@sftp, :reset_status, :status
+      def_delegators :@sftp, :reset_status, :status, :host
 
       attr_reader :source,
                   :destination,

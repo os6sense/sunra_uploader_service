@@ -29,6 +29,7 @@ module Sunra
         {
           history: @history.recent(5),
           uploading: @uploader.status,
+          host: @uploader.host,
           pending: pending.map do | rf |
             {
               project_id: rf.project_id,
