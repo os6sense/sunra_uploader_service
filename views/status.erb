@@ -12,37 +12,6 @@
   <h1><strong>UPLOADER SERVICE</strong></h1>
   <hr/>
 
-  <h2>HISTORY (last 5 uploads)</h2>
-  <table class="well table">
-    <tr>
-      <th>#</th>
-      <th>project</th>
-      <th>client</th>
-      <th>filename</th>
-      <th>fmt</th>
-      <th>when?</th>
-      <th>duration<//th>
-      <th>file size</th>
-      <th>bytes written</th>
-      <th>uploaded?</th>
-    </tr>
-    <% api_status[:history].each_with_index do | h, i | %>
-    <tr>
-      <td><%= h[:id] %></td>
-      <td><%= h[:project_name] %></td>
-      <td><%= h[:client_name] %></td>
-      <td><%= h[:base_filename] %></td>
-      <td><%= h[:format] %></td>
-      <td><%= h[:timestamp] %></td>
-      <td><%= "%.1f" % h[:duration] %> s</td>
-      <td><%= h[:filesize] %></td>
-      <td><%= h[:bytes_written] %></td>
-      <td><%= h[:status] %></td>
-    </tr>
-    <% end %>
-  </table>
-
-  <hr/>
   <h2>IN PROGRESS</h2>
   <% if api_status[:uploading][:size] > 0%>
     <div class="well">
@@ -93,6 +62,38 @@
   <% else %>
     <h6>No files awaiting upload.</h6>
   <% end %>
+  <hr/>
+
+  <h2>HISTORY (last 5 uploads)</h2>
+  <table class="well table">
+    <tr>
+      <th>#</th>
+      <th>project</th>
+      <th>client</th>
+      <th>filename</th>
+      <th>fmt</th>
+      <th>when?</th>
+      <th>duration<//th>
+      <th>file size</th>
+      <th>bytes written</th>
+      <th>uploaded?</th>
+    </tr>
+    <% api_status[:history].each_with_index do | h, i | %>
+    <tr>
+      <td><%= h[:id] %></td>
+      <td><%= h[:project_name] %></td>
+      <td><%= h[:client_name] %></td>
+      <td><%= h[:base_filename] %></td>
+      <td><%= h[:format] %></td>
+      <td><%= h[:timestamp] %></td>
+      <td><%= "%.1f" % h[:duration] %> s</td>
+      <td><%= h[:filesize] %></td>
+      <td><%= h[:bytes_written] %></td>
+      <td><%= h[:status] %></td>
+    </tr>
+    <% end %>
+  </table>
+
   <hr/>
 
 </div>
