@@ -79,25 +79,3 @@ module Sunra
     end
   end
 end
-
-db = Sunra::Uploader::HistoryDB.new
-
-#test_hash = { project_name: 'test',
-              #client_name: 'client_name',
-              #base_filename: 'base_filename',
-              #source: 'lsource',
-              #format: 'format',
-              #destination: 'destination',
-              #timestamp: Time.now.to_s,
-              #duration: 11.1 ,
-              #status: true.to_s}
-
-#db.add(test_hash)
-array = []
-#puts Time.now
-db.load array
-#puts array.size
-##puts array[1235]
-#puts Time.now
-array.each { | h | puts h.inspect }
-#db.close
