@@ -14,9 +14,9 @@ end
 gem 'rack', '>= 1.4.5'
 gem 'rack-cors', :require => 'rack/cors'
 
-gem 'net-sftp'
-gem 'rest-client'
+#gem 'net-sftp'
+#gem 'rest-client'
+gem 'sqlite3'
 gem 'sinatra'
 gem 'eventmachine'
-
 gem 'sunra_utils'

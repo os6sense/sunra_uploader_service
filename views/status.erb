@@ -3,83 +3,108 @@
 <head>
   <title>U P L O A D E R  S E R V I C E - S T A T U S</title> 
   <link href='//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' rel='stylesheet'>
+  <style>
+    h2, h1, h6, th, button { letter-spacing: 6px; }
+  </style>
 </head>
 <body>
 <div class="container">
-  <h1><strong>U P L O A D E R &nbsp; S E R V I C E &nbsp;-&nbsp; S T A T U S</strong></h1>
+  <h1><strong>UPLOADER SERVICE</strong></h1>
   <hr/>
 
-  <h2>H I S T O R Y (last 5 uploads)</h2>
+  <h2>HISTORY (last 5 uploads)</h2>
   <table class="well table">
     <tr>
       <th>#</th>
-      <th>p r o j e c t</th>
-      <th>c l i e n t</th>
-      <th>f i l e n a m e</th>
-      <th>f o r m a t</th>
-      <th>f i n i s h &nbsp; t i m e</th>
-      <th>d u r a t i o n<//th>
-      <th>u p l o a d e d ?</th>
+      <th>project</th>
+      <th>client</th>
+      <th>filename</th>
+      <th>fmt</th>
+      <th>when?</th>
+      <th>duration<//th>
+      <th>file size</th>
+      <th>bytes written</th>
+      <th>uploaded?</th>
     </tr>
     <% api_status[:history].each_with_index do | h, i | %>
     <tr>
-      <td><%= i+1 %></td>
+      <td><%= h[:id] %></td>
       <td><%= h[:project_name] %></td>
       <td><%= h[:client_name] %></td>
       <td><%= h[:base_filename] %></td>
       <td><%= h[:format] %></td>
       <td><%= h[:timestamp] %></td>
       <td><%= "%.1f" % h[:duration] %> s</td>
-      <td><%= h[:status][:complete] %></td>
+      <td><%= h[:filesize] %></td>
+      <td><%= h[:bytes_written] %></td>
+      <td><%= h[:status] %></td>
     </tr>
     <% end %>
   </table>
 
-  <h2>I N &nbsp; P R O G R E S S</h2>
-  <div class="well">
-    <% if api_status[:uploading][:size] > 0%>
-      <h6>L O C A L :<%= api_status[:uploading][:local]%></h6>
-      <h6>R E M O T E : <%=api_status[:host]%><%= api_status[:uploading][:remote]%></h6>
+  <hr/>
+  <h2>IN PROGRESS</h2>
+  <% if api_status[:uploading][:size] > 0%>
+    <div class="well">
+      <h5>LOCAL  &nbsp;&nbsp;&nbsp;: <%= api_status[:uploading][:local]%></h5>
+      <h5>REMOTE : <%=api_status[:host]%><%= api_status[:uploading][:remote]%></h5>
       <table class="table">
         <tr>
-          <td>S I Z E : <%= api_status[:uploading][:size]/(1024)%> KB</td>
-          <td>W R I T T E N : <%= api_status[:uploading][:bytes_written]/(1024)%> KB</td>
-          <td>C O M P L E T E ? : <%= api_status[:uploading][:complete ]%></td>
+          <td>SIZE : <%= api_status[:uploading][:size]/(1024)%> KB</td>
+          <td>WRITTEN : <%= api_status[:uploading][:bytes_written]/(1024)%> KB</td>
+          <td>COMPLETE ? : <%= api_status[:uploading][:complete ]%></td>
         </tr>
       </table>
+    </div>
     <% else %>
-      <p>N o &nbsp; u p l o a d &nbsp; i n &nbsp; p r o g r e s s</p>
+      <h6>No upload in progress.</h6>
     <% end %>
-  </div>
 
-  <h2>P E N D I N G</h2>
-  <table class="table well">
-    <tr>
-      <th>#</th>
-      <th>p r o j e c t</th>
-      <th>c l i e n t</th>
-      <th>s t a r t</th>
-      <th>e n d</th>
-      <th>f i l e n a m e</th>
-      <th>f o r m a t</th>
-    </tr>
-    <% api_status[:pending].each_with_index do | p, i |%>
-      <tr>
-        <td><%= i+1 %></td>
-        <td><%= p[:project_name]%></td>
-        <td><%= p[:client_name] %></td>
-        <td><%= p[:start_time] %></td>
-        <td><%= p[:end_time] %></td>
-        <td><%= p[:base_filename] %></td>
-        <td><%= p[:format] %></td>
+  <hr/>
+  <h2>PENDING</h2>
 
+  <% if api_status[:pending].size > 0 %>
+    <table class="table well">
       <tr>
+        <th>#</th>
+        <th>project</th>
+        <th>client</th>
+        <th>start</th>
+        <th>end</th>
+        <th>filename</th>
+        <th>format</th>
+      </tr>
+      <% api_status[:pending].each_with_index do | p, i |%>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= p[:project_name]%></td>
+          <td><%= p[:client_name] %></td>
+          <td><%= p[:start_time] %></td>
+          <td><%= p[:end_time] %></td>
+          <td><%= p[:base_filename] %></td>
+          <td><%= p[:format] %></td>
+        <tr>
+      <% end %>
+
+    </table>
+    <% if api_status[:uploading][:size] <= 0 %>
+      <button id='button' type="button" class="btn btn-default btn-lg">BEGIN UPLOAD</button>
     <% end %>
-  </table>
+  <% else %>
+    <h6>No files awaiting upload.</h6>
+  <% end %>
+  <hr/>
 
 </div>
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
+  <script>
+  $("button").click(function(){
+    $.ajax({url:"manual_start",success:function(result){
+      location.reload();
+    }});
+  }); 
+  </script>
 </body>
 </html>

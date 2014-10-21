@@ -66,7 +66,7 @@ module Sunra
         return true
       rescue => error
         logger.error('ArchiveProxy') { 'Error During Archive Service Notification' }
-        logger.error('ArchiveProxy') { error }
+        logger.error('ArchiveProxy') { error.message }
         return false
       end
     end

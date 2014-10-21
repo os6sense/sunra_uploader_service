@@ -92,6 +92,11 @@ module Sunra
         @rf['format']
       end
 
+
+      def filesize
+        @rf['filesize']
+      end
+
       # ==== Description
       # ID of the recording format itself
       def id

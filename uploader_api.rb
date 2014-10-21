@@ -16,7 +16,7 @@ module Sunra
 
       def initialize(format_proxy, config, logger = nil)
         @format_proxy     = format_proxy
-        @history          = History.new(format_proxy)
+        @history          = Sunra::Uploader::History.new(format_proxy)
         @uploader         = Sunra::Utils::Uploader.new(config, logger)
         @archive_proxy    = ArchiveProxy.new(config.archive_api_key,
                                              config.archive_server_rest_url)
