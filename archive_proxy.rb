@@ -51,17 +51,16 @@ module Sunra
       #        for a full description.
       def notify(rf, destination)
         logger.info('ArchiveProxy') { 'Notifying Archive Service' }
-        logger.info('ArchiveProxy') { "rf: #{rf}" }
         logger.info('ArchiveProxy') { "destination: #{destination}" }
 
         p_id = ProjectProxy.new(@rest_client).create(rf).id
-        logger.info('ArchiveProxy') { "Project Created #{p_id}" }
+        logger.debug('ArchiveProxy') { "Project Created #{p_id}" }
         s_id = SessionProxy.new(@rest_client).create(p_id, rf).id
-        logger.info('ArchiveProxy') { "Session Created #{s_id}" }
+        logger.debug('ArchiveProxy') { "Session Created #{s_id}" }
         r_id = RecordingProxy.new(@rest_client).create(p_id, s_id, rf).id
-        logger.info('ArchiveProxy') { "Recording Created #{r_id}" }
+        logger.debug('ArchiveProxy') { "Recording Created #{r_id}" }
         MediumProxy.new(@rest_client).create(p_id, s_id, r_id, rf)
-        logger.info('ArchiveProxy') { "Recording Created #{r_id}" }
+        logger.debug('ArchiveProxy') { "Recording Created #{r_id}" }
 
         return true
       rescue => error

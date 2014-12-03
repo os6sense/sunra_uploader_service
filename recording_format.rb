@@ -88,7 +88,6 @@ module Sunra
         lookup_val = Integer(@rf['format'])
         @_format ||= format_proxy.lookup_format_name(lookup_val)
       rescue
-
         @rf['format']
       end
 

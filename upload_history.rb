@@ -3,15 +3,23 @@ require_relative 'upload_history_entry'
 
 module Sunra
   module Uploader
-    # Fifo queue so that we dont have to hit the DB every time?
+    # ==== Description
+    # Simple abstraction to provide a list of files that have been uploaded
     class History
       def initialize(db_api)
-        @_hdb = HistoryDB.new()
         @history = []
+
+        @_hdb = HistoryDB.new()
         @_hdb.load(@history)
       end
 
-       # Record an upload and its status (success/fail) + errors
+      # ==== Description
+      # add a file to the history list
+      #
+      # ==== Parameters
+      # +rf+ :: RecordingFormat record
+      # +start_time+ :: The time at which the upload was started
+      # +uploader+ :: The uploader which should return a status hash
       def add(rf, start_time, uploader)
         hash = HistoryEntry.new.from_recording_format(rf)
         hash.add_time(start_time)
@@ -21,13 +29,12 @@ module Sunra
         hash[:id] = @_hdb.add(hash)
       end
 
+      # ==== Description
       # Return the result of the last n upload attempts.
       def recent(n = 5)
         return @history[-n..-1] if n < @history.size
         return @history[0..n]
       end
     end
-
-
   end
 end

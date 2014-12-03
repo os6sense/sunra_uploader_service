@@ -5,7 +5,8 @@ require 'sunra_utils/sftp_uploader'
 module Sunra
   module Utils
     # ==== Description
-    # Wrapper around @SFTPUploader which handles
+    # Largerly a wrapper around @SFTPUploader which handles the actual
+    # uploading
     class Uploader
       attr_accessor :logger
 
