@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-require 'sunra_config/uploader'
+require 'sunra_utils/config/uploader'
 require_relative '../uploader_api.rb'
 
 describe Sunra::Uploader::API do

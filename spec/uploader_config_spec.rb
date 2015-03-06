@@ -1,11 +1,11 @@
-require 'sunra_config/uploader'
+require 'sunra_utils/config/uploader'
 require 'bogus/rspec'
 
-describe Sunra::Config::Uploader do
+describe Sunra::Utils::Config::Uploader do
   describe :Config do
 
     before :each do
-      @config = Sunra::Config::Uploader
+      @config = Sunra::Utils::Config::Uploader
       @config.bootstrap_on_require(
                          File.expand_path('./test_config_values.yml', __dir__))
     end
