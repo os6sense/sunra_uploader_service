@@ -7,10 +7,9 @@ module Sunra
     class ProjectProxy < ArchiveClassProxyBase
       # Note, overrides the create method and DOES NOT call super
       def create(rf)
-        if (existing =
-              _record_exists?("/ID/#{rf.project_id}.json")).nil?
-          prj = rf.to_project()
-          @json = JSON.parse(@rest_client.create('/ID.json', prj))
+        if (existing = _record_exists?("/ID/#{rf.project_id}.json/")).nil?
+          result = @rest_client.create('/ID.json/', rf.to_project)
+          @json = JSON.parse(result)
         else
           @json = JSON.parse(existing)
         end
