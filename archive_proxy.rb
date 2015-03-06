@@ -10,7 +10,7 @@
 # and there is the additional matter of adding meta information and securing
 # the recordings. Hence a seperate API is used for this. Perhaps they both
 # should have a common base?
-#
+
 require 'json'
 
 require 'sunra_utils/logging'
@@ -64,8 +64,9 @@ module Sunra
 
         return true
       rescue => error
-        logger.error('ArchiveProxy') { 'Error During Archive Service Notification' }
+        logger.error('ArchiveProxy') { 'Error in Archive Service Notification' }
         logger.error('ArchiveProxy') { error.message }
+        logger.error('ArchiveProxy') { error.backtrace }
         return false
       end
     end
