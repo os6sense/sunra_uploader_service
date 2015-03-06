@@ -31,9 +31,11 @@ module Sunra
       # +sftp_password+:: optional?
       def initialize(config, logger = nil)
         @sftp = Sunra::Utils::SFTP::Uploader.new(config.archive_server_address,
-                                 config.sftp_username,
-                                 config.archive_base_directory,
-                                 config.sftp_password)
+                                                 config.sftp_username,
+                                                 config.archive_base_directory,
+                                                 config.sftp_password)
+
+        @sftp.port = config.sftp_port
         @sftp.logger = logger
       end
 
