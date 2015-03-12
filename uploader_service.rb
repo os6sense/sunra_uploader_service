@@ -32,6 +32,8 @@ module Sunra
         halt 'Uploader Service'
       end
 
+      # TODO, respect the api key =. I use this also in the recording service
+      # hence it needs abstracting out.
       get '/status.?:format?' do
         if params[:format] && params[:format] == 'html'
           erb :status, locals: {api_status: @api.status}

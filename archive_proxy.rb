@@ -60,7 +60,7 @@ module Sunra
         r_id = RecordingProxy.new(@rest_client).create(p_id, s_id, rf).id
         logger.debug('ArchiveProxy') { "Recording Created #{r_id}" }
         MediumProxy.new(@rest_client).create(p_id, s_id, r_id, rf)
-        logger.debug('ArchiveProxy') { "Recording Created #{r_id}" }
+        logger.debug('ArchiveProxy') { "Recording Media Created #{r_id}" }
 
         return true
       rescue => error
