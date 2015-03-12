@@ -18,6 +18,6 @@ gem 'sqlite3', '~> 1.3.0'
 gem 'sinatra', '~> 1.4.0'
 gem 'eventmachine'
 
-gem 'sunra_utils', '~> 0.1.0'
+gem 'sunra_utils', '~> 0.1.8', git: 'https://github.com/os6sense/sunra_utils.git'
 gem 'net-sftp', '~> 2.1.0'
 gem 'rest-client', '~> 1.7.0'
